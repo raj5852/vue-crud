@@ -34,11 +34,12 @@
 
         </tbody>
 
-        <h1 v-if="isPageLoading">Loading....</h1>
+        
 
 
 
       </table>
+      <div v-if="isPageLoading" class="skeleton-vf4148qr1lv"></div>
       <Pagination :data="laravelData" @pagination-change-page="getResults" />
 
 
@@ -180,7 +181,7 @@ export default {
             AlertMessage.value = "Data Deleted Successfully!"
             alertShow.value = true
 
-            getResults()
+            getResults(page=1)
 
           })
       }
@@ -231,7 +232,7 @@ export default {
             const truck_modal = document.querySelector('#modalShow');
             const modal = bootstrap.Modal.getInstance(truck_modal);
             modal.hide();
-            getResults()
+            getResults(page=1)
 
           })
           .catch(error => {
@@ -286,4 +287,5 @@ export default {
 #EditBtn {
   margin-right: 5px;
 }
+.skeleton-vf4148qr1lv:empty {position: relative; height: 290px; background-color: #ffffff; border-radius: 0px 0px 0px 0px; background-image: linear-gradient( #cccccc 6px, transparent 0 ),linear-gradient( #cccccc 6px, transparent 0 ),linear-gradient( #cccccc 6px, transparent 0 ),linear-gradient( #cccccc 35px, transparent 0 ),linear-gradient( #cccccc 35px, transparent 0 );background-repeat: repeat-y;background-size: 100% 290px,100% 290px,100% 290px,100% 290px,100% 290px;background-position: 1px 70px,1px 55px,1px 42px,0px 87px,1px 1px;}.skeleton-vf4148qr1lv:empty:before {content: ' '; position: absolute; z-index: 1000; width: 100%; height: 290px;-webkit-mask-image: linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80% ); -webkit-mask-repeat : repeat-y; -webkit-mask-size : 50px 290px; -webkit-mask-position: -20% 0;background-image: linear-gradient( rgba(102,102,102,1) 6px, transparent 0 ),linear-gradient( rgba(102,102,102,1) 6px, transparent 0 ),linear-gradient( rgba(102,102,102,1) 6px, transparent 0 ),linear-gradient( rgba(102,102,102,1) 35px, transparent 0 ),linear-gradient( rgba(102,102,102,1) 35px, transparent 0 );background-repeat: repeat-y;background-size: 100% 290px,100% 290px,100% 290px,100% 290px,100% 290px;background-position: 1px 70px,1px 55px,1px 42px,0px 87px,1px 1px;animation: shineForSkeleton-vf4148qr1lv 2s infinite;}@keyframes shineForSkeleton-vf4148qr1lv {to {-webkit-mask-position: 120% 0}}
 </style>
