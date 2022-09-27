@@ -82,7 +82,10 @@
           </div>
         </div>
       </div>
-
+ <!-- Modal end -->
+ 
+ 
+ 
     </div>
   </div>
 </template>
